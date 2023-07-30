@@ -1,0 +1,4 @@
+flask~=2.2.2
+WTForms~=3.0.1
+pandas~=2.0.3
+Werkzeug~=2.3.6
