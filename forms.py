@@ -11,3 +11,4 @@ class RecipeForm(FlaskForm):
     recipe_directions = TextAreaField('Directions:', validators=[DataRequired()])
     recipe_servings = StringField('Servings:', validators=[DataRequired()])
     recipe_picture = FileField('Picture:', validators=[FileRequired()])
+

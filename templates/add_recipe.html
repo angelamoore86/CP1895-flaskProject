@@ -2,24 +2,23 @@
 {% from "form-macros.html" import render_field %}
 
 {% block page_title %}
-"The Rock" Recipes
+Recipes from the Rock
 {% endblock %}
 
 {% block H1_Description %}
-Add a Recipe
-{% endblock %}
+Add a Recipe{% endblock %}
 
 {% block H1_Content %}
-Please fill out the form in the below section to add a recipe
+Please fill out the form below to add a recipe.
 {% endblock %}
 
 {% block H2_Description %}
 Please fill out each section
 {% endblock %}
-<
+
 {% block H2_Content %}
 <section>
-    <form action="http://localhost:5000/add_recipe.html"  enctype="multipart/form-data" method="post">
+    <form action="http://localhost:5000/add_recipe"  enctype="multipart/form-data" method="post">
         {{ form.csrf_token }}
 
 
