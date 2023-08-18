@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Recipes from The Rock!
+{% endblock %}
+
+{% block H1_Description %}
+{% endblock %}
+
+{% block H1_Content %}
+{% endblock %}
+
+{% block H2_Description %}
+Previously posted recipes.
+{% endblock %}
+
+{% block H2_Content %}
+    <h1>Recipes</h1>
+    <ul>
+        {% for recipe_df in recipes %}
+            <h2>{{ recipe_df['Name'][0] }}</h2>
+        {% if 'Image' in recipe_df.columns %}
+            <img src="{{ url_for('static', filename='image_dir/' ~ recipe_df['Image'][0]) }}" alt="{{ recipe_df['Name'][0] }}" width="150">
+        {% endif %}
+            <p>Ingredients: {{ recipe_df['Ingredients'][0] }}</p>
+            <p>Instructions: {{ recipe_df['Instructions'][0] }}</p>
+            <p>Servings: {{recipe_df['Servings'][0] }}</p>
+            <a href="{{ url_for('delete', recipe_name=recipe_df['Name'][0]) }}">Delete</a>
+        {% endfor %}
+    </ul>
+{% endblock %}

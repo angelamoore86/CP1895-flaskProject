@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "form-macros.html" import render_field %}
+
+{% block page_title %}
+Recipes from The Rock!
+{% endblock %}
+
+{% block H1_Description %}
+{% endblock %}
+
+{% block H1_Content %}
+{% endblock %}
+
+{% block H2_Description %}
+Please type the name of recipe or an ingredient you would like to search for.
+
+{% endblock %}
+
+{% block H2_Content %}
+    <h1>Search Recipe</h1>
+    <form action="/search" method="POST">
+        <label for="keyword">Keyword:</label>
+        <input type="text" id="keyword" name="keyword" required>
+        <button type="submit">Search</button>
+    </form>
+    {% if search_results %}
+        <h2>Search Results for "{{ keyword }}"</h2>
+        <ul>
+            {% for recipe_df in search_results %}
+                <h3>{{ recipe_df['Name'][0] }}</h3>
+                <p>Ingredients: {{ recipe_df['Ingredients'][0] }}</p>
+                <p>Instructions: {{ recipe_df['Instructions'][0] }}</p>
+                <p>Servings: {{ recipe_df['Servings'][0] }}</p>
+                <a href="{{ url_for('delete', recipe_name=recipe_df['Name'][0]) }}">Delete</a>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+

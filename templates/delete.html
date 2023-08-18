@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% from "form-macros.html" import render_field %}
+
+{% block page_title %}
+Recipes from The Rock!
+{% endblock %}
+
+{% block H1_Description %}
+{% endblock %}
+
+{% block H1_Content %}
+{% endblock %}
+
+{% block H2_Description %}
+Please type the name of recipe to search and delete.
+Press button to delete recipe.
+{% endblock %}
+
+{% block H2_Content %}
+    <h1>Delete Recipe</h1>
+    <p>Are you sure you want to delete the recipe for "{{ recipe_name }}"?</p>
+    <form action="{{ url_for('delete', recipe_name=recipe_name) }}" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+{% endblock %}
+

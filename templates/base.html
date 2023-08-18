@@ -25,10 +25,11 @@
             <header class="wrapper clearfix">
                 <h1 class="title">{% block page_title %}{% endblock %}</h1>
                 <nav>
-                    <ul>
-                         <li><a href={{ url_for('add_recipe') }}>Add Info</a></li>
-                        <li><a href={{ url_for('hello_admin') }}>Admin Portal</a></li>
-                        <li><a href="#">Search Recipe</a></li>
+                    <ul >
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('recipes') }}">List</a></li>
+                        <li><a href="{{ url_for('upload') }}">Add</a></li>
+                        <li><a href="{{ url_for('search') }}">Search</a></li>
                     </ul>
                 </nav>
             </header>
@@ -52,6 +53,7 @@
                 <aside>
                     <h3>The Province of NL</h3>
                     <p>Newfoundland is an Island on the East Coast of Canada.</p>
+                    <img src="../static/images.jpg" alt="nl_map"/>
                 </aside>
 
             </div> <!-- #main -->
@@ -59,7 +61,7 @@
 
         <div class="footer-container">
             <footer class="wrapper">
-                <h3>By CP1895 Students</h3>
+                <h3>Created By: Angela Moore</h3>
             </footer>
         </div>
 
@@ -78,4 +80,4 @@
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
         </script>
     </body>
-</html>
+
